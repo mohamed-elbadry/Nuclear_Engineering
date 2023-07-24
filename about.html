@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الهندسة النووية</title>
+    <link rel="shortcut icon" href="assets/imgs/icon.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://arabicfonts.net/fonts/alarabiya-font-normal"
+      rel="stylesheet"
+    />
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
+    integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N"
+    crossorigin="anonymous"
+  />
+  
+  
+ 
+  </head>
+
+  <body>
+    <style>
+       @font-face {
+        font-family: "arabiya-norm";
+        src: url("https://arabicfonts.net/fonts/alarabiya-font-normal") format("truetype");
+      }
+
+      :root {
+        --yellow: #fab209;
+        --green: #127529;
+        --btn-color: #1c8b3b;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Cairo", sans-serif;
+        scroll-behavior: smooth;
+        transition: 0.3s linear;
+      }
+
+      a {
+        text-decoration: none !important;
+        color: inherit;
+      }
+
+      a:hover {
+        color: inherit;
+      }
+
+      .section__title {
+        font-family: "cairo";
+        font-size: 30px;
+        font-weight: 700;
+      }
+
+      .__title {
+        font-family: "cairo";
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .__color {
+        color: var(--green);
+      }
+
+      .__yellow {
+        color: var(--yellow);
+      }
+
+      ::-webkit-scrollbar {
+        width: 11px;
+        transform: all 0.5s;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: var(--btn-color);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--green);
+        border-radius: 50px;
+        height: 70px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--yellow);
+        transition: 0.3s ease-in-out;
+      }
+      /*  Navbar   */
+
+      .navbar {
+        transition: all 0.5s ease-in-out;
+      }
+      .nav-link {
+        color: var(--green);
+        font-family: "cairo";
+        font-size: 15px;
+        margin: 0 3px;
+        font-weight: 700;
+        letter-spacing: .5px;
+      }
+
+      .nav-link:hover {
+        color: var(--yellow);
+      }
+
+      .dropdown-menu {
+        border-radius: 10px;
+        padding: 0 0;
+        margin: 0;
+        overflow: hidden;
+        width: 200px;
+      }
+
+      .dropdown-item {
+        padding: 0.7rem 1.5rem;
+        color: var(--green);
+        position: relative;
+        font-family: "cairo";
+        margin: 7px 0;
+        font-size: 13px;
+        font-weight: 700;
+      }
+      .dropdown-item:hover,
+      .dropdown-item:focus {
+        color: #1c8b3b;
+      }
+      .dropdown-item:focus {
+        background-color: transparent;
+      }
+
+      .dropdown-menu li .dropdown-item::before {
+        content: "";
+        text-align: center;
+        width: 3px;
+        height: 100%;
+        position: absolute;
+        right: 10px;
+        top: 0px;
+        background-color: var(--green);
+        display: block;
+      }
+
+      .input {
+        border: none;
+        color: var(--green);
+        border-radius: 20px;
+        padding: 5px 20px;
+        box-shadow: 1px 2px 0 rgba(0, 0, 0, 0.2),
+          -1px -2px 0 rgba(238, 237, 237, 0.2);
+        margin-left: 10px;
+      }
+
+      ::placeholder {
+        color: var(--green);
+      }
+
+      .input:focus {
+        outline: var(--btn-color) !important;
+        border-color: var(--btn-color);
+      }
+
+      .navbar-toggler {
+        border-color: var(--green) !important;
+      }
+
+      .navbar-toggler:focus {
+        outline:none!important;
+        box-shadow: none;
+      }
+
+      .navbar-toggler-icon {
+        /* color: var(--green); */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1.2rem;
+        height: 1.5rem;
+      }
+
+     
+
+      #change {
+        cursor: pointer;
+      }
+
+      .wrap {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        box-shadow: 1px 2px 0 rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .icon_ {
+        color: var(--green) !important;
+        padding: 3px;
+        font-size: 17px;
+      }
+
+      #about p {
+        font-size: 21px;
+        line-height: 50px;
+      }
+
+      .about__img {
+        border-radius: 0 50px;
+      }
+
+      #works p {
+        font-size: 13px;
+      }
+
+      /* start workers sec */
+      .bg {
+        background-image: url(./assets/imgs/persons/bg.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 50vh;
+        max-height: 260px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+      #workers .img {
+        border: 1px solid var(--yellow);
+      }
+
+      .span {
+        font-size: 12px;
+      }
+
+      /* End workers section */
+
+      #lab h5 {
+        font-size: 19px;
+      }
+
+      .p_lab {
+        font-size: 13px;
+      }
+
+      .layer {
+        bottom: 0;
+        right: 0;
+        padding: 15px;
+        background-color: rgba(0, 0, 0, 0.3);
+      }
+      .album__pic {
+        transition: 0.3s linear;
+      }
+      .album__pic:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+      }
+
+      #news h3 {
+        color: var(--yellow);
+        font-size: 17px;
+        padding: 8px 0;
+      }
+
+      .p-news {
+        font-size: 14px;
+        padding: 0 0 20px 0;
+      }
+
+      .news-btn {
+        bottom: 0px;
+        left: 0;
+        padding: 7px 25px;
+        border-radius: 0 20px 0 0;
+        font-weight: bold;
+      }
+
+      .__pic {
+        border-radius: 0 50px 0 0;
+      }
+
+      footer a:hover {
+        color: var(--yellow);
+        text-decoration: none;
+      }
+
+      .p__footer,
+      .right--sec ul li a,
+      .left--sec ul li a {
+        line-height: 25px;
+        font-size: 15px;
+      }
+
+      footer row {
+        line-height: 30px;
+      }
+
+      footer .social__media a {
+        /* font-size: 21px !important; */
+        padding: 21px 8px;
+      }
+
+      footer .h4 {
+        text-align: center;
+      }
+
+
+
+
+.video {
+        width: 100%;
+        height: 100%;
+      }
+
+      .c-video {
+        position: relative;
+        max-height: 100vh;
+        overflow: hidden;
+        width: 100%;
+        cursor: pointer;
+      }
+
+      .btns {
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+      }
+      .btns button {
+        background: none;
+        border: 0;
+        outline: 0;
+        cursor: pointer;
+        
+      }
+
+      .playcircle {
+        font-size: 43px;
+        color: var(--green);
+      }
+
+      .cursor {
+        cursor: pointer;
+      }
+
+
+.drop-lang {
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+.drop-lang .lang {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  -webkit-padding-start: 26px;
+  padding-inline-start: 26px;
+  position: relative;
+  z-index: 9;
+}
+.drop-lang .lang img {
+  width: 30px;
+  height: 20px;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+.drop-lang .lang span {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  font-weight: 500;
+  -webkit-margin-end: 10px;
+  margin-inline-end: 10px;
+}
+
+.drop-lang .lang:hover span {
+  opacity: 1;
+}
+.drop-lang .lang:hover::after {
+  -webkit-animation: translateY 2s linear infinite;
+  animation: translateY 2s linear infinite;
+}
+
+@media (max-width: 999px) {
+  .drop-lang .lang span,
+  .top-nav .drop-lang .lang::after {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  #about p {
+    line-height: 30px;
+    font-size: 17px;
+  }
+
+  .about__img {
+    border-radius: 0;
+  }
+
+  .section__title {
+    font-size: 30px;
+  }
+
+  .__pic {
+    border-radius: 0;
+  }
+
+  footer .h4 {
+    text-align: right;
+  }
+}
+
+.about,
+.goals {
+  background-color: var(--yellow);
+}
+.about--page__para {
+  line-height: 35px;
+  font-size: large;
+  font-weight: 600;
+}
+
+
+.page__head {
+  background-image: url(./assets/imgs/lab/bg-inner.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.page__head .__title {
+  font-size: 21px;
+  transition: 0.3s;
+}
+
+.page__head a:hover {
+  color: var(--yellow);
+}
+
+.about .img-fluid {
+  position: relative;
+  animation: up-down 5s linear infinite;
+}
+
+.goals .img-fluid {
+  width: 300px;
+  position: relative;
+  animation: up-down 5s linear infinite;
+}
+
+@keyframes up-down {
+  0%,
+  100% {
+    top: 0;
+  }
+
+  50% {
+    top: -50px;
+  }
+}
+
+.p-about {
+  line-height: 27px;
+}
+
+@media (max-width:767px){
+  .msg-img{
+    display: none;
+  }
+}
+    </style>
+    <div class="upper--head py-2 bg-dark">
+      <div class="container d-flex justify-content-between">
+        <div class="welcome-text">
+          <small class="fw-semibold text-light">
+            مرحبًا بكم في موقع الهندسة النووية!
+          </small>
+        </div>
+
+        <div class="drop-lang">
+          <a href="../Nu-Eng/main.html" class="lang">
+            <span class=""> English </span>
+
+            <img src="assets/flag.jpg" loading="lazy" alt="" class="pe-0" />
+          </a>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="assets/imgs/logo.png" style="width: 200px" alt="logo" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+        <span class="navbar-toggler-icon">
+          <!-- <i class="fa fa-bars"></i> -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#1c8b3b"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM64 256c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H96c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
+        </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html"
+                >الرئيسية</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">من نحن</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="projects.html">المشاريع البحثية</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="labs.html">المعامل</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="programs.html">البرامج الأكاديمية</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                المكتب الإعلامي
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="news.html">الأخبار</a></li>
+                <hr class="my-0" />
+                <li>
+                  <a class="dropdown-item" href="videos.html"
+                    >معرض الفيديوهات</a
+                  >
+                </li>
+                <hr class="my-0" />
+                <li>
+                  <a class="dropdown-item" href="gallery.html">ألبوم صور</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="persons.html">المنسوبين</a>
+            </li>
+          </ul>
+          <div class="search d-flex justify-content-start">
+            <input class="input d-none" type="text" placeholder="بحث..." />
+            <span class="wrap" id="change"
+              >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18px" fill="#127529">
+                <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                <path
+                  d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="page__head py-5 text-white">
+      <div
+        class="container py-5 d-flex justify-content-center align-items-center"
+      >
+        <a href="index.html" class="__title">الرئيسية</a>
+        <!-- <i class="fa-solid fa-chevron-left mx-2"></i> -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="#fff" class="bi bi-chevron-right mx-2" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+        </svg>
+        <span class="__title">من نحن </span>
+      </div>
+    </div>
+
+    <main>
+      <div class="about my-5">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-6 col-12">
+              <h2 class="fw-bold __color py-3">من نحن</h2>
+              <p class="about--page__para">
+                أن يكون القسم هو المرجع الأول في علوم وأبحاث الطاقـة والتقنيـة
+                النوويـة وفي مجالات هندسة الوقاية الإشعاعية وهندسة الفيزياء
+                الطبية وتطبيقاتها وإعداد كوادرها في المملكة.
+              </p>
+            </div>
+            <div class="col-md-6 col-12">
+              <img src="assets/imgs/about/1.png" class="img-fluid py-4" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-4 col-12">
+            <img src="assets/imgs/about/2.png" class="msg-img w-100" />
+          </div>
+          <div class="col-md-8 col-12">
+            <div class="txt py-2">
+              <h3 class=" __color">الرسالة</h3>
+              <p class="p-about">
+                إعداد وتأهيل الكوادر الهندسية ذوي الكفاءة العالية في مجالات
+                الفيزياء الطبية والحماية الإشعاعية والهندسة النووية بما يتماشى
+                مع المعايير والمتطلبات الدولية واحتياجات المجتمع.
+              </p>
+            </div>
+            <div class="txt py-2">
+              <h3 class=" __color">الرؤية</h3>
+              <p class="p-about">
+                أن يكون القسم هو المرجع الأول في علوم وأبحاث الطاقـة والتقنيـة
+                النوويـة وفي مجالات هندسة الوقاية الإشعاعية وهندسة الفيزياء
+                الطبية وتطبيقاتها وإعداد كوادرها في المملكة.
+              </p>
+            </div>
+            <div class="txt py-2">
+              <h3 class=" __color">نبذة تاريخية</h3>
+              <p class="p-about">
+                تأسس قسم الهندسة النووية ضمن أقسام كلية الهندسة عند إنشائها في
+                عام 1394/1395 هـ (1977 م) وذلك لما لوحظ من أهمية لهذا التخصص وقد
+                روعي في البرنامج المقدم أن يفي بحاجة المملكة العربية السعودية
+                الحالية والمستقبلية.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container my-5">
+        <img src="assets/imgs/projects/bg.png" class="w-100" />
+      </div>
+
+      <div class="goals mt-5">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-5 col-12">
+              <img src="assets/imgs/about/3.png" class="img-fluid py-3" />
+            </div>
+            <div class="col-md-7 col-12">
+              <h1 class=" __color py-3">أهدافنا</h1>
+              <p class="about--page__para">
+                أن يكون القسم هو المرجع الأول في علوم وأبحاث الطاقـة والتقنيـة
+                النوويـة وفي مجالات هندسة الوقاية الإشعاعية وهندسة الفيزياء
+                الطبية وتطبيقاتها وإعداد كوادرها في المملكة.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section id="header">
+        <div class="c-video">
+          <video
+            src="assets/video/head-video.mp4"
+            class="video"
+            id="video"
+            poster="assets/imgs/head-img.png"
+          ></video>
+          <div class="btns">
+            <button id="play-pause" class="">
+              <!-- <i class="fa-regular fa-circle-play playcircle"></i> -->
+              <svg id="svg" xmlns="http://www.w3.org/2000/svg" width="37" height="37" fill="#1c8b3b" class="bi bi-play-circle " viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-dark text-white pt-5">
+      <div class="container">
+        <div class="footer__head pb-3">
+          <img src="assets/imgs/logo.png" style="width: 230px" />
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-12">
+            <h4 class="__yellow __title pb-2">نبذة تاريخية</h4>
+            <p class="p__footer">
+              تأسس قسم الهندسة النووية ضمن أقسام كلية الهندسة عند إنشائها في عام
+              1394/1395 هـ (1977 م) وذلك لما لوحظ من أهمية لهذا التخصص وقد روعي
+              في البرنامج المقدم أن يفي بحاجة المملكة العربية السعودية الحالية
+              والمستقبلية.
+            </p>
+          </div>
+          <div class="col-md-5 col-12">
+            <h4 class="h4 __yellow __title pb-2">أقسام الموقع</h4>
+            <div class="sections d-flex justify-content-around">
+              <div class="right--sec">
+                <ul class="list-unstyled">
+                  <li><a href="index.html">الصفحة الرئيسية</a></li>
+                  <li><a href="about.html">من نحن</a></li>
+                  <li><a href="#">المكتب الإعلامي</a></li>
+                  <li><a href="labs.html">المعامل</a></li>
+                </ul>
+              </div>
+              <div class="left--sec">
+                <ul class="list-unstyled">
+                  <li><a href="projects.html">المشاريع البحثية</a></li>
+                  <li><a href="#works">مجالات العمل</a></li>
+                  <li><a href="programs.html">البرامج</a></li>
+                  <li><a href="persons.html">منسوبي القسم (الأعضاء)</a></li>
+                  <li><a href="contact.html">تواصل معنا</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-12">
+            <h4 class="px-2 __yellow __title pb-2">بيانات الاتصال</h4>
+            <div class="contacts">
+              <div class="div pb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" fill="#fab209" class="pe-2"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+                emtaha@kau.edu.sa
+              </div>
+              <div class="div">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" fill="#fab209" class="pe-2"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M347.1 24.6c7.7-18.6 28-28.5 47.4-23.2l88 24C499.9 30.2 512 46 512 64c0 247.4-200.6 448-448 448c-18 0-33.8-12.1-38.6-29.5l-24-88c-5.3-19.4 4.6-39.7 23.2-47.4l96-40c16.3-6.8 35.2-2.1 46.3 11.6L207.3 368c70.4-33.3 127.4-90.3 160.7-160.7L318.7 167c-13.7-11.2-18.4-30-11.6-46.3l40-96z"/></svg>0126952000
+              </div>
+              <div class="div pt-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" fill="#fab209" class="pe-2"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M128 64v96h64V64H386.7L416 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L432 18.7C420 6.7 403.7 0 386.7 0H192c-35.3 0-64 28.7-64 64zM0 160V480c0 17.7 14.3 32 32 32H64c17.7 0 32-14.3 32-32V160c0-17.7-14.3-32-32-32H32c-17.7 0-32 14.3-32 32zm480 32H128V480c0 17.7 14.3 32 32 32H480c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM256 320c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32zm160-32c0 17.7-14.3 32-32 32s-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32zM384 448c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32zm-96-32c0 17.7-14.3 32-32 32s-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32z"/></svg>72372 - 72370
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="social__media text-center py-3">
+          <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="21px" fill="#fab209"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></i></a>
+          <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="20px" fill="#fab209"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+          <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="20px" fill="#fab209"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+          <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="15px" fill="#fab209"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg></a>
+          <div class="my-2">
+            <small style="font-size: 13px;">جميع الحقوق محفوظة لموقع قسم الهندسة النووية @2023</small>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+
+
+  <script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+  crossorigin="anonymous"
+></script>
+
+
+
+ 
+  <script>
+    let change = document.getElementById("change");
+    change.addEventListener("click", function () {
+      document.querySelector(".input").classList.toggle("d-none");
+    });
+
+    let mybtn, video;
+    mybtn = document.getElementById("play-pause");
+    video = document.querySelector(".video");
+
+    function togglePlayPause() {
+      if (video.paused) {
+        mybtn.className = "pause";
+        mybtn.innerHTML =
+          '<i class="fa-regular fa-circle-pause playcircle"></i>';
+        video.play();
+      } else {
+        mybtn.className = "play";
+        mybtn.innerHTML =
+          '<i class="fa-regular fa-circle-play playcircle"></i>';
+        video.pause();
+      }
+    }
+
+    mybtn.addEventListener("click", function () {
+      togglePlayPause();
+    });
+
+    video.addEventListener("timeupdate", function () {
+      if (video.ended) {
+        mybtn.className = "play";
+        mybtn.innerHTML =
+          '<i class="fa-regular fa-circle-play playcircle"></i>';
+      }
+    });
+
+    video.addEventListener("click", function (e) {
+      if (video.paused == true) {
+        video.play();
+        mybtn.innerHTML =
+          '<i class="fa-regular fa-circle-pause playcircle"></i>';
+      } else {
+        video.pause();
+        mybtn.innerHTML =
+          '<i class="fa-regular fa-circle-play playcircle"></i>';
+      }
+    });
+
+    video.addEventListener("ended", function () {
+      video.load();
+    });
+  </script>
+</html>
